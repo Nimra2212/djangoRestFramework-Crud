@@ -1,9 +1,17 @@
 from rest_framework import status, generics
-from .models import Task
+from todoApp.models import Task
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from .serializers import TaskSerializer
+from rest_framework import viewsets
+
+
+# with Django rest_framework viewsets
+
+class TodoViewSet(viewsets.ModelViewSet):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
 
 
 # with Django rest_framework class base view
