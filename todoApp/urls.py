@@ -6,7 +6,7 @@ from django.urls import include
 
 # from todoApp.api.v1.viewsets import TodoViewSet
 
-
+from todoAuth.url import urlpatterns as todoauth
 from .api.v1.routers import api_urlpatterns1 as api_v1
 from .api.v2.routers import urlpatterns1 as api_v2
 from .api.v3.routers import urlpatterns2 as api_v3
@@ -15,6 +15,7 @@ urlpatterns = [
     path('api/v1/', include(api_v1)),
     path('api/v2/', include(api_v2)),
     path('api/v3/', include(api_v3)),
+    path('auth/', include(todoauth)),
 ]
 
 
